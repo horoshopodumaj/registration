@@ -67,7 +67,8 @@ class UserController {
     }
     async test(req, res, next) {
         try {
-            res.json(["123", "123"]);
+            const users = await userService.test();
+            res.json(users);
         } catch (error) {
             next(error);
         }
