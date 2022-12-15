@@ -1,13 +1,13 @@
 import api from "../http";
 
 export default class AuthService {
-    static async login(email, password) {
+    static login(email, password) {
         return api.post("api/login", { email, password });
     }
-    static async registration(email, password) {
+    static registration(email, password) {
         return api.post("api/registration", { email, password });
     }
-    static async logout() {
+    static logout() {
         return api.post("api/logout");
     }
 }

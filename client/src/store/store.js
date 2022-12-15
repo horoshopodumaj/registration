@@ -1,5 +1,7 @@
 import { makeAutoObservable } from "mobx";
 import AuthService from "../services/AuthService";
+import axios from "axios";
+import { URL } from "../App";
 
 export default class Store {
     user = {};
@@ -47,6 +49,18 @@ export default class Store {
             localStorage.removeItem("token");
             this.setAuth(false);
             this.setUser({});
+        } catch (error) {
+            console.log(error.response?.data?.message);
+        }
+    }
+
+    async checkAuth() {
+        try {
+            const response = await axios.get(`${URL}/api/refresh`, { withCredentials: true });
+            console.log(response);
+            localStorage.setItem("token", response.data.accessToken);
+            this.setAuth(true);
+            this.setUser(response.data.user);
         } catch (error) {
             console.log(error.response?.data?.message);
         }

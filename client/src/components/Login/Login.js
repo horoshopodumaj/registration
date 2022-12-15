@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import style from "./Login.module.scss";
 import { Context } from "../../index";
+import { observer } from "mobx-react-lite";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -26,4 +27,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default observer(Login);
