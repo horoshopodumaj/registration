@@ -1,4 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "./index";
 import Login from "./components/Login";
 import { observer } from "mobx-react-lite";
@@ -31,6 +31,7 @@ function App() {
         <div className="App">
             <h1>
                 {store.isAuth ? `Пользователь авторизован ${store.user.email}` : "АВТОРИЗУЙТЕСЬ"}
+                {store.user.isActivated ? `Аккаунт подтвержден по почте` : "Подтвердите аккаунт"}
             </h1>
             <button onClick={() => store.logout()}>Logout</button>
             <div>
