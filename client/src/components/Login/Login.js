@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import style from "./Login.module.scss";
+import { Context } from "../../index";
 
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const { store } = useContext(Context);
     return (
         <div>
             <input
@@ -18,8 +20,8 @@ const Login = () => {
                 type="password"
                 placeholder="Password"
             />
-            <button>Login</button>
-            <button>Registration</button>
+            <button onClick={() => store.login(email, password)}>Login</button>
+            <button onClick={() => store.registration(email, password)}>Registration</button>
         </div>
     );
 };
