@@ -16,14 +16,18 @@ function App() {
         }
     }, []);
 
-    if (store.isLoading) {
-        return <div>Подождите, идет загрузка</div>;
-    }
-
     return (
         <div className="App">
             <Header />
-            <div className="container">{!store.isAuth ? <Login /> : <Content />}</div>
+            <div className="container">
+                {store.isLoading ? (
+                    <div class="spinner"></div>
+                ) : !store.isAuth ? (
+                    <Login />
+                ) : (
+                    <Content />
+                )}
+            </div>
         </div>
     );
 }
