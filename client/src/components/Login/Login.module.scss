@@ -1,11 +1,10 @@
 .loginForm {
     display: flex;
     flex-direction: column;
-    // border: 1px solid var(--input-border);
     border-radius: 10px;
     //background-color: rgba(171, 253, 215, 1);
     background-color: var(--header-color);
-    padding: 3rem;
+    padding: 2.5rem;
     box-shadow: 17px 17px 60px -5px rgba(0, 0, 0, 0.62);
     -webkit-box-shadow: 17px 17px 60px -5px rgba(0, 0, 0, 0.62);
     -moz-box-shadow: 17px 17px 60px -5px rgba(0, 0, 0, 0.62);
@@ -13,7 +12,7 @@
 
 @media screen and (max-width: 400px) {
     .loginForm {
-        padding: 2rem;
+        padding: 1.5rem;
     }
 }
 
@@ -24,19 +23,24 @@
 }
 
 .input {
-    height: 2.5rem;
-    border: 1px solid var(--input-border);
+    //height: 2.5rem;
     border-radius: 4px;
-    padding: 0.5rem;
+    padding: 1rem 2rem;
     margin-bottom: 1rem;
 }
 
 .button {
-    height: 2rem;
     border-radius: 4px;
-    padding: 0.5rem;
+    padding: 0.8rem 1.5rem;
     flex: 1;
     background-color: var(--logo-color);
+    border: 1px solid var(--header-color);
+
+    &:hover {
+        background-color: var(--header-color);
+        border: 1px solid var(--logo-color);
+        color: var(--logo-color);
+    }
 }
 
 .buttons {

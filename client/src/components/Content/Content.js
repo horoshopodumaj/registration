@@ -19,7 +19,7 @@ const Content = () => {
 
             {store.user.isActivated ? (
                 <>
-                    <h2 className={style.confirm}>The account is confirmed by mail</h2>
+                    <h2 className={style.confirm}>The account is confirmed by mail.</h2>
                     <button className={style.button} onClick={onClick}>
                         Get all users
                     </button>
