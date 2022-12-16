@@ -32,14 +32,18 @@ const Login = () => {
                         className={style.checkbox}
                         onClick={() => setType(!type)}
                     />
-                    <label for="pass">Show password</label>
+                    <label htmlFor="pass">Show password</label>
                 </div>
                 <div className={style.buttons}>
-                    <button className={style.button} onClick={() => store.login(email, password)}>
+                    <button
+                        className={style.button}
+                        disabled={store.isDisabled ? "disabled" : ""}
+                        onClick={() => store.login(email, password)}>
                         Login
                     </button>
                     <button
                         className={style.button}
+                        disabled={store.isDisabled ? "disabled" : ""}
                         onClick={() => store.registration(email, password)}>
                         Registration
                     </button>

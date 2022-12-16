@@ -41,6 +41,10 @@
         border: 1px solid var(--logo-color);
         color: var(--logo-color);
     }
+    &:disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
 }
 
 .buttons {
