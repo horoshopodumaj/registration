@@ -6,6 +6,7 @@ import { observer } from "mobx-react-lite";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [type, setType] = useState(true);
     const { store } = useContext(Context);
     return (
         <div className={style.container}>
@@ -20,10 +21,19 @@ const Login = () => {
                 <input
                     onChange={(event) => setPassword(event.target.value)}
                     value={password}
-                    type="password"
+                    type={type ? "password" : "text"}
                     placeholder="Password"
                     className={style.input}
                 />
+                <div className={style.checkboxContainer}>
+                    <input
+                        type="checkbox"
+                        id="pass"
+                        className={style.checkbox}
+                        onClick={() => setType(!type)}
+                    />
+                    <label for="pass">Show password</label>
+                </div>
                 <div className={style.buttons}>
                     <button className={style.button} onClick={() => store.login(email, password)}>
                         Login
