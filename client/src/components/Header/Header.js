@@ -7,10 +7,12 @@ const Header = () => {
     const { store } = useContext(Context);
     return (
         <header className={style.header}>
-            <div className={style.logo}>LOGO</div>
+            <div className={style.logo}>
+                <Link to="/">LOGO</Link>
+            </div>
             {store.isAuth ? (
                 <ul className={style.list}>
-                    <li>{store.user.email}</li>
+                    <li className={style.email}>{store.user.email}</li>
                     <li>
                         <Link to="/" className={style.link} onClick={() => store.logout()}>
                             Logout

@@ -9,9 +9,16 @@
     margin-bottom: 1rem;
 }
 
-.logo {
+.logo a {
     color: var(--logo-color);
     font-size: 2rem;
+    padding-right: 1rem;
+}
+
+@media screen and (max-width: 375px) {
+    .logo a {
+        font-size: 1.5rem;
+    }
 }
 
 .link {
@@ -21,4 +28,10 @@
 
 .list {
     display: flex;
+    align-items: center;
+}
+
+.email {
+    word-break: break-all;
+    text-align: center;
 }
