@@ -11,18 +11,26 @@ const Login = () => {
     return (
         <div className={style.container}>
             <div className={style.loginForm}>
+                <label htmlFor="email" className={style.label}>
+                    Email
+                </label>
                 <input
                     onChange={(event) => setEmail(event.target.value)}
                     value={email}
-                    type="text"
+                    type="email"
+                    id="email"
                     placeholder="Email"
                     className={style.input}
                 />
+                <label htmlFor="password" className={style.label}>
+                    Password
+                </label>
                 <input
                     onChange={(event) => setPassword(event.target.value)}
                     value={password}
                     type={type ? "password" : "text"}
                     placeholder="Password"
+                    id="password"
                     className={style.input}
                 />
                 <div className={style.checkboxContainer}>
