@@ -116,7 +116,7 @@ const Login = () => {
                         name="password"
                         className={style.input}
                     />
-                    <div className={style.checkboxContainer}>
+                    {/* <div className={style.checkboxContainer}>
                         <input
                             type="checkbox"
                             id="pass"
@@ -124,7 +124,35 @@ const Login = () => {
                             onClick={() => setType(!type)}
                         />
                         <label htmlFor="pass">Show password</label>
-                    </div>
+                    </div> */}
+                    <label className={style.checkbox}>
+                        <input
+                            type="checkbox"
+                            className={style.checkbox__input}
+                            onClick={() => setType(!type)}
+                        />
+                        <div className={style.checkbox__state}>
+                            <div className={style.checkbox__control}>
+                                <svg
+                                    className={style.checkbox__icon}
+                                    width="15"
+                                    height="13"
+                                    viewBox="0 0 15 13"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M1.5 7.5L5 11L13 2"
+                                        stroke="white"
+                                        stroke-width="3"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </div>
+                            <div className={style.checkbox__label}>Show password</div>
+                        </div>
+                    </label>
+
                     <div className={style.buttons}>
                         <button
                             className={style.button}
