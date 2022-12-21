@@ -1,0 +1,22 @@
+.container {
+    background-color: var(--toast-color);
+    color: var(--logo-color);
+    position: fixed;
+    top: 70px;
+    left: 15px;
+    padding: 0.8rem;
+    padding-left: 0.5rem;
+    border-radius: 0.5rem;
+    z-index: 5;
+    transform: translate(-500px);
+    transition: 0.4s;
+}
+.show {
+    transform: translate(0px);
+}
+
+// @media screen and (max-width: 320px) {
+//     .container {
+//         right: 10px;
+//     }
+// }

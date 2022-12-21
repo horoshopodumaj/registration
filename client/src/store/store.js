@@ -9,6 +9,7 @@ export default class Store {
     isAuth = false;
     isLoading = false;
     isDisabled = false;
+    userMessage = "";
 
     constructor() {
         makeAutoObservable(this);
@@ -28,6 +29,9 @@ export default class Store {
     setDisabled(bool) {
         this.isDisabled = bool;
     }
+    setUserMessage(message) {
+        this.userMessage = message;
+    }
 
     async registration(email, password) {
         this.setDisabled(true);
@@ -35,10 +39,11 @@ export default class Store {
             const response = await AuthService.registration(email, password);
             console.log(response);
             localStorage.setItem("token", response.data.accessToken);
+            this.setUserMessage("");
             this.setAuth(true);
             this.setUser(response.data.user);
         } catch (error) {
-            console.log(error.response?.data?.message);
+            this.setUserMessage(error.response.data.message);
         } finally {
             this.setDisabled(false);
         }
@@ -49,10 +54,11 @@ export default class Store {
             const response = await AuthService.login(email, password);
             console.log(response);
             localStorage.setItem("token", response.data.accessToken);
+            this.setUserMessage("");
             this.setAuth(true);
             this.setUser(response.data.user);
         } catch (error) {
-            console.log(error.response?.data?.message);
+            this.setUserMessage(error.response.data.message);
         } finally {
             this.setDisabled(false);
         }

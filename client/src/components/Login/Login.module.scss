@@ -2,16 +2,12 @@
     display: flex;
     flex-direction: column;
     border-radius: 10px;
-    //background-color: rgba(171, 253, 215, 1);
     background-color: var(--header-color);
     padding: 2.5rem;
     box-shadow: 17px 17px 60px -5px rgba(0, 0, 0, 0.62);
     -webkit-box-shadow: 17px 17px 60px -5px rgba(0, 0, 0, 0.62);
     -moz-box-shadow: 17px 17px 60px -5px rgba(0, 0, 0, 0.62);
-}
-
-@media screen and (max-width: 400px) {
-    .loginForm {
+    @media screen and (max-width: 360px) {
         padding: 1.5rem;
     }
 }
@@ -23,10 +19,12 @@
 }
 
 .input {
-    //height: 2.5rem;
     border-radius: 4px;
     padding: 1rem 2rem;
     margin-bottom: 1rem;
+    @media screen and (max-width: 320px) {
+        padding: 1rem;
+    }
 }
 
 .button {
@@ -45,12 +43,18 @@
         pointer-events: none;
         opacity: 0.5;
     }
+    @media screen and (max-width: 330px) {
+        padding: 0.5rem 0.8rem;
+    }
 }
 
 .buttons {
     display: flex;
     justify-content: space-between;
     gap: 10px;
+    @media screen and (max-width: 370px) {
+        flex-direction: column;
+    }
 }
 
 .checkbox {
@@ -63,4 +67,14 @@
 
 .label {
     margin-bottom: 0.5rem;
+}
+
+.error {
+    color: var(--error-color);
+    padding: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    line-height: 120%;
 }

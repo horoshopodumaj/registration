@@ -7,7 +7,9 @@ class UserController {
         try {
             const errors = validationResult(req);
             if (!errors.isEmpty()) {
-                return next(ApiError.BadRequest("Ошибка при валидации", errors.array()));
+                return res.status(400).json({
+                    errors: errors.array(),
+                });
             }
             const { email, password } = req.body;
             const userData = await userService.registration(email, password);
@@ -17,6 +19,7 @@ class UserController {
             });
             return res.json(userData);
         } catch (error) {
+            res.status(500).json({ message: error.message });
             next(error);
         }
     }
@@ -28,8 +31,10 @@ class UserController {
                 maxAge: 30 * 24 * 60 * 60 * 1000,
                 httpOnly: true,
             });
+            console.log(userData);
             return res.json(userData);
         } catch (error) {
+            res.status(500).json({ message: error.message });
             next(error);
         }
     }
